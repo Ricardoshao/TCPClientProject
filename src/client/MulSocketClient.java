@@ -17,11 +17,14 @@ public class MulSocketClient {
 
     public static void main(String[] args) {
 
+        double db  = 1/3;
+
         Socket socket = null;
 
         InputStream is = null;
 
-        OutputStream os = null;
+     //   OutputStream os = null;
+        ObjectOutputStream os =null;
 
         //服务器端IP地址
 
@@ -43,9 +46,10 @@ public class MulSocketClient {
 
             //初始化流
 
-            os = socket.getOutputStream();
-
+     //       os = socket.getOutputStream();
+            os = new ObjectOutputStream(socket.getOutputStream());
             is = socket.getInputStream();
+     //       os.writeDouble(344.2532);
 
             byte[] b = new byte[1024];
 
